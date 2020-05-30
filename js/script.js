@@ -153,10 +153,14 @@ function initGraph(data, dataset, svg) {
 
     function select(d) {
         if (d == null) { // restore default values
-            svg.selectAll(".infopanel").remove(); // clear the selection info panel
+            svg.selectAll(".infopanel").transition().duration(500).style("opacity", 0).remove(); // clear the selection info panel
             svg.selectAll(".edge")
+                // .transition()
+                // .duration(500)
                 .style("opacity", 0.2);
             svg.selectAll(".node")
+                // .transition()
+                // .duration(500)
                 .style("opacity", 1);
             try {
                 let current = svg.selectAll(".selected"); // remove " selected" from the classes for this node
@@ -184,9 +188,9 @@ function initGraph(data, dataset, svg) {
             let trg = selection._groups[0][i].__data__.target.username;
 
             let selection_a = svg.selectAll(`#${"_" + src.split(".").join("")}`);
-            selection_a.style("opacity", 1);
+            selection_a.transition().duration(500).style("opacity", 1);
             let selection_b = svg.selectAll(`#${"_" + trg.split(".").join("")}`);
-            selection_b.style("opacity", 1);
+            selection_b.transition().duration(500).style("opacity", 1);
         }
 
         // select the node with class = username of clicked node
@@ -198,7 +202,8 @@ function initGraph(data, dataset, svg) {
         let panel = svg.append("g")
                         .attr("class", "infopanel")
                         .attr("transform", "translate(10, 30)")
-                        .attr("text-anchor", "start");
+                        .attr("text-anchor", "start")
+                        .style("opacity", 0);
         panel.append("text")
             .text(`Currently selected: @${d.username}`);
         panel.append("text")
@@ -207,6 +212,7 @@ function initGraph(data, dataset, svg) {
         panel.append("text")
             .text(d.private ? "Their profile is PRIVATE." : "Their profile is PUBLIC.")
             .attr("transform", "translate(0, 44)");
+        panel.transition().duration(1000).style("opacity", 1);
     }
 
     // Add a simple tooltip to ALL nodes
