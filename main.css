@@ -1,0 +1,210 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #d0d0d0;
+    background-color: #293A47;
+    background-image: url("assets/triangle-mosaic-blue.png");
+    margin: 0;
+    z-index: -100;
+    text-align: center;
+    text-shadow: 2px 2px 2px #0e2332;
+    overflow: hidden;
+}
+
+.bg-gradient {
+    /* background-image: url("assets/triangle-mosaic-blue.png"); */
+    background-image: linear-gradient(to bottom, rgba(24, 36, 42, 0.0), rgba(17, 27, 32, 0.5));
+    margin: 0;
+    overflow: hidden;
+    z-index: -99;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+}
+
+div {
+    margin: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+a {
+    color: #fff;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+svg {
+    border: 3px solid #09151f;
+    box-shadow: 0px 0px 8px #0e2332;
+    text-anchor: middle;
+}
+
+circle {
+    box-shadow: 4px 4px 2px black;
+}
+
+.node {
+    filter: url(#shadow);
+}
+
+.infopanel {
+    text-anchor: "start";
+    fill: rgba(128, 128, 128, 0.75);
+}
+
+.selected {
+    stroke-width: 2;
+    stroke: rgb(215, 168, 121);
+}
+
+.edge {
+    /* stroke: #ccc; */
+    /* stroke: #0f1d28; */
+    stroke: #FFB000;
+    stroke-width: 1;
+    opacity: 0.2;
+}
+
+.background {
+    fill: #0b161f;
+    color: #0b161f;
+    opacity: 0.2;
+}
+
+/* Overrides for private user nodes */
+.private {
+    /* opacity: 0.3; */
+    /* fill: red !important; */
+}
+
+.legend text {
+    fill: #eee;
+}
+
+.legend .note {
+    fill: #aaa;
+    font-style: italic;
+    text-shadow: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  grid-template-rows: 10% 75% auto;
+  gap: 1px 1px;
+  grid-template-areas: "Header Header Header" "IG MID TW" "Infobox Infobox Infobox";
+}
+
+.IG {
+    grid-area: IG;
+    margin-left: 40px;
+    margin-right: 20px;
+    /* overflow: hidden; */
+}
+
+.MID {
+    margin-top: 50%;
+    grid-area: MID;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    vertical-align: middle;
+    /* border: 2px dashed rgb(34, 37, 59); */
+    /* overflow: visible; */
+    height: auto;
+}
+
+/* Button color fade animation */
+@keyframes buttonfadein {
+  from {background-color: rgba(0, 0, 0, 0.5);}
+  to {background-color: rgba(0, 0, 0, 0.2);}
+}
+
+.button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #2d3b5d;
+    outline: #2d3b5d;
+    border: none;
+    color: white;
+    padding: 14px;
+    margin: 5px;
+    border-radius: 100%;
+}
+
+.button:hover {
+    /* border-radius: 100%; */
+    background-color: rgba(0, 0, 0, 0.3);
+    animation-name: buttonfadein;
+    animation-duration: 0.1s;
+}
+
+.button:focus {
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation-name: buttonfadein;
+    animation-duration: 0.1s;
+}
+
+.button:active {
+    /* border-radius: 10%; */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.TW {
+    grid-area: TW;
+    margin-left: 20px;
+    /* margin-right: 40px; */
+}
+
+.Header {
+    position: fixed;
+    grid-area: Header;
+    margin-top: -20px;
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* background-color: rgb(24, 36, 42); */
+    /* background-image: linear-gradient(to bottom, rgb(24, 36, 42), rgb(17, 27, 32)); */
+    /* margin-bottom: 20px; */
+}
+
+#header-bg {
+    position: fixed;
+    /* grid-area: Header; */
+    /* margin-top: -20px; */
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 11%;
+    z-index: -10;
+    /* background-color: rgb(24, 36, 42); */
+    background-image: linear-gradient(to bottom, rgb(24, 36, 42), rgb(17, 27, 32));
+    /* margin-bottom: 20px; */
+}
+
+.blur {
+    filter: blur(1px);
+}
+
+.Infobox {
+    grid-area: Infobox;
+    padding-bottom: -100px;
+}
+
+.footer {
+    position: fixed;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(24, 36, 42);
+    /* color: white; */
+    text-align: center;
+}
