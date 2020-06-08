@@ -7,24 +7,28 @@
         <script src="https://d3js.org/d3.v5.js"></script>
 		<script src="js/script.js"></script>
 		<script src="js/load_data.js"></script>
-		<!-- <script src="js/svgpan.js"></script> -->
+		<script src="js/buttons.js"></script>
+		<script src="js/matrix.js"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<div class="bg-gradient"></div>
 		<div class="grid-container">
+			<div class="Header">
+				<div class="blur" id="header-bg"></div>
+				<h1>Social Circles and Social Media</h1>
+				<p style="margin-top:-10px;">Try dragging a node down to the legend to compare!</p>
+				<button id="readmore" type="button" name="ReadMore" onclick="window.location.href='more.html';">Read More >></button>
+			</div>
 			<div class="IG container">
 				<h2>Instagram</h2>
 				<svg viewBox="0 0 500 500" class="insta">
-					<!-- Background rectangle -->
 					<rect x="0" y="0" width="100%" height="100%" class="background"/>
-
 					<defs>
 						<filter id="shadow">
 							<feDropShadow dx="0.2" dy="0.4" stdDeviation="0.2"/>
 						</filter>
 					</defs>
-
 				</svg>
 			</div>
 			<div class="TW container">
@@ -33,41 +37,31 @@
 					<rect x="0" y="0" width="100%" height="100%" class="background"/>
 				</svg>
 			</div>
-			<div class="Header">
-				<div class="blur" id="header-bg"></div>
-				<h1>Social Circles and Social Media</h1>
-				<p style="margin-top:-10px;">Try dragging a node down to the legend to compare!</p>
-			</div>
 			<div class="MID">
-				<h2>What is this?</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<br>
-				<div class="buttons">
-					<button class="button one"> </button>
-					<button class="button two"> </button>
-					<button class="button three"> </button>
+				<div class="textbox one active">
+					<h2>What is this?</h2>
+					<p>These network graphs depict users on the social media platforms Instagram and Twitter, as well as the mutual follower/following relationships on them. Each edge connecting two nodes indicates that both users represented by the two nodes each follow each other on that platform.</p>
+					<p>The graph to the left depicts the connections between members of my social circle on Instagram. Due to limitations in processing power, restrictions in the developer APIs I utilized, and the sheer volume of data, I was only able to extend this graph to one degree of separation from the origin account. Clicking on a node will highlight the node's connections to others within the graph, and will also provide additional information regarding the properties of the node.</p>
+					<p>Similarly, the graph to the right depicts connections between users in my social circle on Twitter. With a much smaller volume of users to account for, I was able to extend this graph to two degrees of separation.</p>
+					<p>Click on the next button below to keep reading, or click 'Read More' in the top right to see more info on previous iterations of my design.</p>
 				</div>
-
+				<div class="textbox two">
+					<h2>But what does this mean?</h2>
+					<p>In the words of Eli Pariser, "Your identity shapes your media. There’s just one flaw: Media also shape identity." Social circles on online platforms are, to many, a primary source of information about current events and political opinions. The danger here lies in an overreliance on one perspective or philosophy while disregarding others that may clash with one's current status quo.</p>
+					<p>Platforms such as Instagram promote "cliquing," the formation of dense subgraphs within a network where each user is connected to every other user. This is dangerous because it promotes the echo chamber effect, where one political opinion or philosophy may reverberate around within the confines of the group with no outside perspective to moderate it. Thus, platforms that seek to bridge the gap between users in distinct online communities (Twitter, Reddit, Tumblr, and more) play an important role in widening our perspectives and broadening our understanding of diverse perspectives other than our own.</p>
+					<p>Click the third button below to view the adjacency matrices for each of these graphs.</p>
+				</div>
+				<div class="textbox three matrices">
+					<!-- I don't know why the matrices don't load properly sometimes; refreshing the page almost always fixes it. -->
+					<p id="debug" style="opacity: 50%;">If nothing appears here, please reload the page and try again.</p>
+				</div>
+				<div class="buttonBox"></div>
 			</div>
 			<div class="Infobox">
-				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
 			</div>
 		</div>
 		<div class="footer">
 			<p>Feel free to reach out to <a href>jared@cs.uoregon.edu</a> if you have any questions!</p>
 		</div>
-		<!-- <div class="IG container">
-			<h2>Instagram</h2>
-			<svg viewBox="0 0 500 500" class="IG">
-				<rect x="0" y="0" width="100%" height="100%" class="background"/>
-			</svg>
-		</div>
-		<div class="TW container">
-			<h2>Twitter</h2>
-			<svg viewBox="0 0 500 500" class="TW">
-				<rect x="0" y="0" width="100%" height="100%" class="background"/>
-			</svg>
-		</div> -->
 	</body>
 </html>

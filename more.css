@@ -1,0 +1,55 @@
+.left {
+    margin: 15%;
+    margin-top:50%;
+    width: 700px;
+}
+
+.container {
+    text-shadow: none;
+    grid-area: TW;
+    /* margin-left: 20px; */
+    margin: 0;
+    margin-top: 0;
+    /* margin-right: 40px; */
+    overflow: hidden;
+    width: 600px;
+    height: 600px;
+
+    border: 2px solid rgb(22, 22, 22);
+}
+
+.adjmatrix {
+    cursor: default;
+}
+
+.vis-network {
+    margin: 0;
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.loader {
+    width:600px;
+    height:600px;
+    margin: 0;
+}
+
+#text {
+    text-shadow: none
+}
+
+#loadingBar {
+    margin: 0;
+    width: 600px;
+    height: 600px;
+}
+
+.outerBorder {
+    width: 400px;
+    height:40px;
+    margin-top: -20%;
+}
+
+#bar {
+    max-width: 450px;
+}

@@ -152,24 +152,33 @@ function initGraph(data, dataset, svg) {
             .on("end", dragEnded));
 
     function select(d) {
+        var m; /* Create reference to proprietary adjacency matrix */
+        if (svg.attr("class") == "insta") {
+            m = d3.select("#igmatrix");
+        } else {
+            m = d3.select("#twmatrix")
+        }
+        
         if (d == null) { // restore default values
             svg.selectAll(".infopanel").transition().duration(500).style("opacity", 0).remove(); // clear the selection info panel
             svg.selectAll(".edge")
-                // .transition()
-                // .duration(500)
                 .style("opacity", 0.2);
             svg.selectAll(".node")
-                // .transition()
-                // .duration(500)
                 .style("opacity", 1);
             try {
                 let current = svg.selectAll(".selected"); // remove " selected" from the classes for this node
                 current.attr("class", current.attr("class").substring(0, current.attr("class").length - 9));
             } finally {
-                return;
+                try {
+                    console.log("Trying to remove 'selected' class...");
+                    let entry = m.selectAll(".selected");
+                    entry.attr("class", entry.attr("class").substring(0, entry.attr("class").length - 9));
+                } finally {
+                    return;
+                }
             }
         }
-        console.log("selected @", "_" + d.username.split(".").join(""));
+        // console.log("selected @", "_" + d.username.split(".").join(""));
         svg.selectAll(".edge") // select all edges, reduce opacity
             .style("opacity", 0.1);
         svg.selectAll(".node") // select all nodes, reduce opacity
@@ -178,9 +187,6 @@ function initGraph(data, dataset, svg) {
         // select all edges with class = username of clicked node
         selection = svg.selectAll(`.edge.${"_" + d.username.split(".").join("")}`);
         selection.style("opacity", 1);
-
-        // let connections = selection.selectAll(selection);
-        // console.log(selection._groups[0]);
 
         /* select all nodes within a degree of separation of the node we clicked */
         for (let i = 0; i < selection._groups[0].length; i++) {
@@ -194,9 +200,16 @@ function initGraph(data, dataset, svg) {
         }
 
         // select the node with class = username of clicked node
-        selection = svg.selectAll(`#${"_" + d.username.split(".").join("")}`);
-        selection.style("opacity", 1)
-                .attr("class", selection.attr("class") + " selected");
+        selection = svg.selectAll(`#_${d.username.split(".").join("")}`);
+        selection.style("opacity", 1).attr("class", selection.attr("class") + " selected");
+
+        // select the corresponding entry in the adjacency matrix
+        try {
+            selection = m.selectAll(`#_${d.username.split(".").join("")}`);
+            selection.attr("class", selection.attr("class") + " selected");
+        } catch {
+            console.log(`${d.username} is not drawn in the adjacency matrix.`);
+        }
 
         // Draw the selected user info panel
         let panel = svg.append("g")

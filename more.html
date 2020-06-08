@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>CIS 399 Final Project</title>
+		<link rel="stylesheet" href="main.css" type="text/css">
+        <link rel="stylesheet" href="more.css" type="text/css">
+        <link rel="stylesheet" href="tw_subset.css" type="text/css">
+        <script src="https://d3js.org/d3.v5.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/load_data.js"></script>
+		<script src="js/buttons.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+		<!-- <script src="js/svgpan.js"></script> -->
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="bg-gradient"></div>
+		<div class="grid-container">
+			<div class="Header">
+				<div class="blur" id="header-bg"></div>
+				<h1>Social Circles and Social Media</h1>
+                <!-- <p style="margin-top: -10px;">(This page works best with the latest version of Google Chrome.)</p> -->
+				<button id="back" type="button" name="Back" onclick="window.location.href='/final/repo';"><< Back</button>
+			</div>
+
+            <div class="left">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <br>
+            <div id="mynetwork" class="container">
+            </div>
+            <div class="loader TW">
+                <div id="loadingBar">
+                    <div class="outerBorder">
+                        <div id="text">0%</div>
+                        <div id="border">
+                            <div id="bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <script src="js/tw_graph.js"></script>
+		</div>
+		<div class="footer">
+			<p>Feel free to reach out to <a href>jared@cs.uoregon.edu</a> if you have any questions!</p>
+		</div>
+	</body>
+</html>

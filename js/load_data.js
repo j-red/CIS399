@@ -21,10 +21,16 @@ function fetchJSONFile(path, callback) {
 /* these functions will be executed as a callback when data parsing is done */
 /* Load Instagram data set. */
 fetchJSONFile('data/ig_data.json', function(data) {
+    // loadButtons();
     populate_ig_dataset(data);
+    // loadMatrix(data, "igmatrix", "Instagram"); /* Create IG adjacency matrix */
+    prep(data, "igmatrix", "Instagram"); /* Prime IG adjacency matrix */
 });
 
 /* Load Twitter data set. */
 fetchJSONFile('data/tw_data.json', function(data) {
+    loadButtons();
     populate_tw_dataset(data);
+    // loadMatrix(data, "twmatrix", "Twitter"); /* Create TW adjacency matrix */
+    prep(data, "twmatrix", "Twitter"); /* Prime TW adjacency matrix */
 });

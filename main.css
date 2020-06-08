@@ -7,13 +7,14 @@ body {
     z-index: -100;
     text-align: center;
     text-shadow: 2px 2px 2px #0e2332;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .bg-gradient {
     /* background-image: url("assets/triangle-mosaic-blue.png"); */
     background-image: linear-gradient(to bottom, rgba(24, 36, 42, 0.0), rgba(17, 27, 32, 0.5));
     margin: 0;
+	position:sticky !important;
     overflow: hidden;
     z-index: -99;
     width: 100%;
@@ -25,6 +26,10 @@ div {
     margin: 20px;
     margin-left: 40px;
     margin-right: 40px;
+}
+
+p {
+    font-size: 18px;
 }
 
 a {
@@ -51,6 +56,7 @@ circle {
 
 .node {
     filter: url(#shadow);
+    cursor: pointer;
 }
 
 .infopanel {
@@ -72,9 +78,49 @@ circle {
 }
 
 .background {
-    fill: #0b161f;
+    /* fill: #0b161f; */
+    fill: #232d35;
     color: #0b161f;
-    opacity: 0.2;
+    opacity: 0.9;
+}
+
+#readmore {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+
+#back {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+}
+
+button {
+    background-color: #0c1318;
+    transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    -webkit-transition: background-color 0.2s ease-out;
+    border: none;
+    color: #d0d0d0;
+    padding: 12px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+button:active, button:hover {
+    background-color: #1e2f3b;
+    transition: background-color 0.2s ease-in-out;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out;
+}
+
+button:focus {
+    outline: none;
 }
 
 /* Overrides for private user nodes */
@@ -109,7 +155,9 @@ circle {
 }
 
 .MID {
-    margin-top: 50%;
+    margin: 10px;
+    /* margin: 0 auto; */
+    margin-top: 30%;
     grid-area: MID;
     grid-row-start: 1;
     grid-row-end: 4;
@@ -121,38 +169,77 @@ circle {
 
 /* Button color fade animation */
 @keyframes buttonfadein {
-  from {background-color: rgba(0, 0, 0, 0.5);}
-  to {background-color: rgba(0, 0, 0, 0.2);}
+  from {fill: #0F161B;}
+  to {fill: rgba(76, 112, 138, 0.78);}
+}
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes slideInRight {
+    from {opacity: 0;}
+    /* to {left: opacity: 0.25;} */
+    to {opacity: 1;}
+}
+
+.textbox {
+    animation-name: fadeout;
+    animation-duration: 0.5s;
+    margin: 0 auto;
+    position: absolute;
+    width: 18%;
+    opacity: 0;
+    cursor: default;
+    user-select: none;
+}
+
+.textbox.active {
+    cursor: text;
+    animation-name: slideInRight;
+    animation-duration: 1s;
+    opacity: 1;
+}
+
+.textbox.three {
+    width: 15%;
+    margin-top:-10px;
+    /* margin: 0 auto; */
+    margin-left: 1.5%;
+    /* margin-right: auto; */
+}
+
+.buttonBox {
+    position: absolute;
+    margin-left: 2.67%;
+    margin-top: 37.25%;
 }
 
 .button {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid #2d3b5d;
-    outline: #2d3b5d;
-    border: none;
-    color: white;
+    fill: #0F161B;
     padding: 14px;
     margin: 5px;
     border-radius: 100%;
+    cursor: pointer;
+}
+
+.active {
+    fill: rgba(0, 0, 0, 0.3);
+}
+
+.grid {
+    stroke-width: 0.1;
+    stroke: black;
 }
 
 .button:hover {
     /* border-radius: 100%; */
-    background-color: rgba(0, 0, 0, 0.3);
     animation-name: buttonfadein;
-    animation-duration: 0.1s;
-}
-
-.button:focus {
-    outline: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    animation-name: buttonfadein;
-    animation-duration: 0.1s;
-}
-
-.button:active {
-    /* border-radius: 10%; */
-    background-color: rgba(0, 0, 0, 0.4);
+    animation-duration: 0.2s;
+    fill: rgba(76, 112, 138, 0.78);
 }
 
 .TW {
@@ -169,6 +256,7 @@ circle {
     left: 0;
     top: 0;
     width: 100%;
+	z-index: 100;
     /* background-color: rgb(24, 36, 42); */
     /* background-image: linear-gradient(to bottom, rgb(24, 36, 42), rgb(17, 27, 32)); */
     /* margin-bottom: 20px; */
