@@ -12,7 +12,7 @@
 		<script src="js/buttons.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
-		<!-- <script src="js/svgpan.js"></script> -->
+		<link rel="icon" href="favicon.ico" type="image/icon"/>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 	</head>
 	<body>
@@ -21,14 +21,17 @@
 			<div class="Header">
 				<div class="blur" id="header-bg"></div>
 				<h1>Social Circles and Social Media</h1>
-                <!-- <p style="margin-top: -10px;">(This page works best with the latest version of Google Chrome.)</p> -->
-				<button id="back" type="button" name="Back" onclick="window.location.href='/final/repo';"><< Back</button>
+				<button id="back" type="button" name="Back" onclick="window.location.href='index.html';"><< Back</button>
 			</div>
-
             <div class="left">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<h2 style="text-decoration: underline;">The Iterative Process</h2>
+				<p>When visualizing social media networks, there are some limitations that can prove to be quite difficult to circumvent. As mentioned in the previous page, I was restricted to reduced "degrees of separation" when visualizing my Instagram and Twitter social circles. With Instagram in particular, the average number of follower/following relationships that any given user possesses typically ranges (as based solely on the users in my circle) from between 100 to 5,000, a majority of which tend to be mutual. Even with a conservative estimate of only 100 mutual relationships per user, this would quickly expand exponentially to 100^n  nodes per n degrees of separation.</p>
+				<p>However, this didn't stop me from trying. Figure 2 (below) shows my first attempt at visualizing my Instagram network using only two degrees of separation, but drawing every mutual relationship present within that set. As some of my friends do fall into that 5,000+ follower range, this quickly proved to be infeasible with my current level of ability and prior experience.</p>
+				<p>Yet with the vastly reduced number of users present in my Twitter circle, I was hopeful that extending the visualization beyond two degrees would still be viable. However, I again realized that this was impractical, and beyond that, it was unnecessary for the topic I am attempting to discuss. Figure 3 (below) shows my Twitter network up to three degrees of separation; the primary issue I experienced with this iteration of the visualization was that it presented too much information to provide meaningful insight into the social platform without a much greater level of effort on the part of the viewer. </p>
+				<p>Furthermore, a large portion of user interaction on Twitter stems from Retweets that appear on the Timeline; users recycle the content from the people they follow and promote it to their followers in turn. This implies that at any given time, a user is likely experiencing influence from others within a minimum of two degrees of separation (the people that they follow, and the others users that those people follow).</p>
+				<p>Thus, I settled on using one degree of separation for the Instagram visualization due to logistical constraints, and two degrees for the Twitter visualization (similar to the one seen to the right), as I feel that it provides the most meaningful data without requiring exorbitant processing time and power.</p>
             </div>
-            <br>
+
             <div id="mynetwork" class="container">
             </div>
             <div class="loader TW">
@@ -40,11 +43,22 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
             <script src="js/tw_graph.js"></script>
+
+			<div class="figTable" style="position:absolute; margin-top: 42%;">
+				<table id="figures">
+					<tr>
+						<th>Figure 2</th>
+						<th>Figure 3</th>
+					</tr>
+					<tr>
+						<td><img src="assets/ig_complete.png" style="max-width: 600px; height: 600px"></td>
+						<td><img src="assets/twitter3d.png" style="max-width: 600px; height: 600px"></td>
+					</tr>
+				</table>
+			</div>
+
 		</div>
 		<div class="footer">
 			<p>Feel free to reach out to <a href>jared@cs.uoregon.edu</a> if you have any questions!</p>

@@ -1,7 +1,7 @@
 .left {
-    margin: 15%;
-    margin-top:50%;
-    width: 700px;
+    margin: 10%;
+    margin-top: 15%;
+    width: 800px;
 }
 
 .container {
@@ -52,4 +52,20 @@
 
 #bar {
     max-width: 450px;
+}
+
+img {
+    border: 1px solid black;
+}
+
+table {
+    width: 80%;
+    padding-top: 20px;
+    /* padding-left:50px; */
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+
+td {
+    padding-left:50px;
 }
